@@ -58,13 +58,14 @@ class Game {
  */
     removeLife() {
         const tries = Array.from(document.getElementsByClassName('tries'));
-        const lengthMinusOne = tries.length-1;
-        const img = tries[lengthMinusOne].getElementsByTagName('img')[0];
-        img.src = 'images/lostHeart.png';
-        img.parentElement.classList.remove('tries');
+        console.log(tries);
+        const singleTry = tries[this.missed].firstElementChild;
+        console.log(singleTry);
+        singleTry.src = 'images/lostHeart.png';
         this.missed +=1;
-        if (this.missed >= 5) {
+        if (this.missed === 5) {
             this.gameOver();
+            location.reload();
         }
     }
 
@@ -78,15 +79,15 @@ class Game {
         const gameOverMessage = document.getElementById('game-over-message');
         if (gameWon) {
             gameOverMessage.innerHTML = "Great job!"
-            setTimeout(this.startGame, 3000);
+            setTimeout(this.startGame(), 3000);
         }
         else {
             gameOverMessage.innerHTML = "Sorry, better luck next time!"
-            setTimeout(this.startGame, 3000);
+            setTimeout(this.startGame(), 3000);
         }
 
-        
     }
+
 
     handleInteraction(button){
         button.disabled = true;
