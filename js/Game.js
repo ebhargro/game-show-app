@@ -47,15 +47,17 @@ class Game {
  * Checks for winning move
  * @returns {boolean} True if game has been won, false if game wasn't won
  */
-    checkForWin() {
+    checkForWin(){
        let gameisWon = true;
         const phraseCheck = Array.from(document.getElementsByClassName('letter'));
         phraseCheck.forEach(letter => {
             if(letter.classList.contains('hide')){
                 gameisWon = false;
-    });
+            }
+        });
             return gameisWon;
         }
+    
 /**
  * Increases the value of the missed property
  * Removes a life from the scoreboard
