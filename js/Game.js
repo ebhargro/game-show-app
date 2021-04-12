@@ -79,11 +79,11 @@ class Game {
  * Displays game over message
  * @param {boolean} gameWon - Whether or not the user won the game
  */
-    gameOver(gameWon) {
+    gameOver() {
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'inherit';
         const gameOverMessage = document.getElementById('game-over-message');
-        if (this.checkforWin()) {
+        if (this.checkForWin()) {
             gameOverMessage.innerHTML = "Great job! You won!";
         }
         else {
@@ -105,7 +105,7 @@ class Game {
             this.activePhrase.showMatchedLetter(keyClicked);
             const won = this.checkForWin();
             if(won){
-                this.gameOver(gameWon);
+                this.gameOver();
             }
         }
         if (!verify) {
