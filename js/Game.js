@@ -77,18 +77,14 @@ class Game {
         overlay.style.display = 'inherit';
         const gameOverMessage = document.getElementById('game-over-message');
         if (gameWon) {
-            gameOverMessage.innerHTML = "Great job!"
-            setTimeout(function() {
-      location.reload();
-    }, 3000);
+            gameOverMessage.innerHTML = "Great job!";
         }
         else {
-            gameOverMessage.innerHTML = "Sorry, better luck next time!"
-             setTimeout(function() {
-      location.reload();
-    }, 3000);
+            gameOverMessage.innerHTML = "Sorry, better luck next time!";   
         }
-
+        setTimeout(function() {
+         location.reload();
+         }, 3000);
     }
 
 
@@ -101,7 +97,7 @@ class Game {
             button.classList.add('chosen', 'bounce');
             this.activePhrase.showMatchedLetter(keyClicked);
             const won = this.checkForWin();
-            if(won === true){
+            if(won){
                 this.gameOver(gameWon);
             }
         }
