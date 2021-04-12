@@ -48,9 +48,14 @@ class Game {
  * @returns {boolean} True if game has been won, false if game wasn't won
  */
     checkForWin() {
-        const hidden = document.getElementsByClassName('hide');
-        return hidden.length === 0;
-    }
+       let gameisWon = true;
+        const phraseCheck = Array.from(document.getElementsByClassName('letter'));
+        phraseCheck.forEach(letter => {
+            if(letter.classList.contains('hide')){
+                gameisWon = false;
+    });
+            return gameisWon;
+        }
 /**
  * Increases the value of the missed property
  * Removes a life from the scoreboard
@@ -76,8 +81,8 @@ class Game {
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'inherit';
         const gameOverMessage = document.getElementById('game-over-message');
-        if (gameWon) {
-            gameOverMessage.innerHTML = "Great job!";
+        if (this.checkforWin()) {
+            gameOverMessage.innerHTML = "Great job! You won!";
         }
         else {
             gameOverMessage.innerHTML = "Sorry, better luck next time!";   
