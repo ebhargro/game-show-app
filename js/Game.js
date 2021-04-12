@@ -78,11 +78,11 @@ class Game {
         const gameOverMessage = document.getElementById('game-over-message');
         if (gameWon) {
             gameOverMessage.innerHTML = "Great job!"
-            setTimeout(location.reload(), 3000);
+            location.reload();
         }
         else {
             gameOverMessage.innerHTML = "Sorry, better luck next time!"
-            setTimeout(location.reload(), 3000);
+            location.reload();
         }
 
     }
