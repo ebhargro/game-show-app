@@ -98,7 +98,7 @@ class Game {
             this.activePhrase.showMatchedLetter(keyClicked);
             const won = this.checkForWin();
             if(won === true){
-                this.gameOver(win);
+                this.gameOver(gameWon);
             }
         }
         if (!verify) {
