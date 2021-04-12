@@ -65,7 +65,6 @@ class Game {
         this.missed +=1;
         if (this.missed === 5) {
             this.gameOver();
-            location.reload();
         }
     }
 
@@ -79,11 +78,11 @@ class Game {
         const gameOverMessage = document.getElementById('game-over-message');
         if (gameWon) {
             gameOverMessage.innerHTML = "Great job!"
-            setTimeout(this.startGame(), 3000);
+            setTimeout(location.reload(), 3000);
         }
         else {
             gameOverMessage.innerHTML = "Sorry, better luck next time!"
-            setTimeout(this.startGame(), 3000);
+            setTimeout(location.reload(), 3000);
         }
 
     }
