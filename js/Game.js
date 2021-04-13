@@ -19,7 +19,7 @@ class Game {
  */
     createPhrases() {
         const arrayofQuotes = ['You win some you lose some', 'Slow and steady wins the race', 'To thine own self be true', 'Easier said than done', 'Things come and go'];
-        const phrases = arrayofQuotes.map(quote => new Phrase(quote), []);
+        const phrases = arrayofQuotes.map(quote => new Phrase(quote));
         return phrases;
     }
 
@@ -76,7 +76,7 @@ class Game {
     }
 
 /**
- * Displays game over message
+ * Displays game over message and resets the page
  * @param {boolean} gameWon - Whether or not the user won the game
  */
     gameOver() {
@@ -85,13 +85,18 @@ class Game {
         const gameOverMessage = document.getElementById('game-over-message');
         if (this.checkForWin()) {
             gameOverMessage.innerHTML = "Great job! You won!";
+            overlay.classList.remove('start');
+            overlay.classList.add('win');
         }
         else {
-            gameOverMessage.innerHTML = "Sorry, better luck next time!";   
+            gameOverMessage.innerHTML = "Sorry, better luck next time!";
+            overlay.classList.remove('start');
+            overlay.classList.add('lose');   
         }
         setTimeout(function() {
          location.reload();
-         }, 3000);
+         }, 1000);
+
     }
 
 
